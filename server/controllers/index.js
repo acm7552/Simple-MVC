@@ -219,9 +219,10 @@ const findDog = (req, res) => {
     if (!doc) {
       return res.json({ error: 'No dog found' });
     }
-
+    doc.age++;
+    doc.save();
     // if a match, send the match back
-    return res.json({ name: doc.name, breed: doc.breed, age: ++doc.age });
+    return res.json({ name: doc.name, breed: doc.breed, age: doc.age });
   });
 };
 
